@@ -1,0 +1,68 @@
+2a)	CREATE TABLE `countries`.`education` (
+  `Country Code` VARCHAR(3) NOT NULL,
+  `Literacy Rate` INT NOT NULL,
+  `Male Literacy Rate` INT NOT NULL,
+  `Female Literacy Rate` INT NOT NULL,
+  PRIMARY KEY (`Country Code`));
+
+# Country Code, Literacy Rate, Male Literacy Rate, Female Literacy Rate
+----------------------------------
+
+2b)	insert into education values ('AFG', 38, 52, 24);
+insert into education values ('DEU', 99, 99, 99);
+insert into education values ('NLD', 99, 99, 99);
+insert into education values ('USA', 99, 99, 99);
+
+# Country Code, Literacy Rate, Male Literacy Rate, Female Literacy Rate
+'AFG', '38', '52', '24'
+'DEU', '99', '99', '99'
+'NLD', '99', '99', '99'
+'USA', '99', '99', '99'
+----------------------------------
+
+3a)	select Language from countryLanguage
+	where CountryCode like "USA"
+
+# Language
+'English'
+'French'
+'German'
+'Italian'
+'Japanese'
+'Korean'
+'Polish'
+'Portuguese'
+'Spanish'
+'Tagalog'
+'Vietnamese'
+----------------------------------
+
+3b)	SELECT Name, Population FROM city
+	where CountryCode like "DEU"
+
+# Name, Population
+'Berlin', '3386667'
+'Hamburg', '1704735'
+'Frankfurt am Main', '643821'
+'Essen', '599515'
+'Dortmund', '590213'
+'Stuttgart', '582443'
+----------------------------------
+
+3c)	SELECT name, FemaleLiteracyRate
+    FROM country c
+    LEFT JOIN education e
+    ON c.code = e.CountryCode
+    ORDER BY c.code;
+
+# name, FemaleLiteracyRate
+'Afghanistan', '24'
+'Germany', '99'
+'Netherlands', '99'
+'United States', '99'
+
+
+
+
+
+
